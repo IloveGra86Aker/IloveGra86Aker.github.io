@@ -5,19 +5,17 @@
     <title>カウントダウン</title>
     <style>
         body {
-            
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #0508f0;
+            background-color: blue; 
         }
         #countdown {
             font-size: 3em;
-            color: #fff;
+            color: #fff; 
         }
-  
     </style>
 </head>
 <body>
@@ -38,9 +36,12 @@
             const years = Math.floor(days / 365);
             const remainingDays = days % 365;
 
-           
+            if (timeLeft >= 0) {
                 countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
-          
+            } else {
+                countdownElement.innerHTML = "Happy Birthday!";
+            }
+        }
 
         setInterval(updateCountdown, 1000);
     </script>
