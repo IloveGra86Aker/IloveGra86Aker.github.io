@@ -39,10 +39,21 @@
             if(days>=366){
             const yearsA = Math.floor(daysA / 365);
             const years =( oly * 4) + yearsA;
+
+             const remainingDays = daysA - (yearsA * 365);
+         
+
+
+            if (timeLeft >= 0) {
+                countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+            } else {
+                countdownElement.innerHTML = "Happy Birthday!<br>2280-9-10";
+            }
+                
             }else{
             const yearsA = 0;
             const years = 0;
-            }
+        
             
             
             const remainingDays = daysA - (yearsA * 365);
@@ -53,6 +64,7 @@
                 countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
             } else {
                 countdownElement.innerHTML = "Happy Birthday!<br>2280-9-10";
+            }
             }
         }
 
