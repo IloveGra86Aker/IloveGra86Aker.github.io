@@ -15,7 +15,7 @@
         }
         #countdown {
             font-size: 3em;
-            color: #333;
+            color: #fff;
         }
     </style>
 </head>
@@ -37,7 +37,7 @@
             const years = Math.floor(days / 365);
             const remainingDays = days % 365;
 
-            if (timeLeft >= 0) {
+            if (timeLeft > 0) {
                 countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
             } else {
                 countdownElement.innerHTML = "Happy Birthday!";
