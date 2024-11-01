@@ -28,21 +28,20 @@
             const now = new Date().getTime();
             const timeLeft = endDate - now;
             
-            const msInDay = 1000 * 60 * 60 * 24;
-            const msInYear = 1000 * 60 * 60 * 24 * 365.25;
-
-            const years = Math.floor(timeLeft / msInYear);
-            const remainingDays = Math.floor((timeLeft % msInYear) / msInDay);
-            const hours = Math.floor((timeLeft % msInDay) / (1000 * 60 * 60));
-
-
-            
-            
+            const days = Math.floor(timeLeft/(1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
+            const oly = Math.floor(days/1461);
+            const daysA = days - oly * 1461 ;
+            const yearsA = Math.floor(daysA / 365);
+            const years =( oly * 4) + yearsA;
             
             
+            const remainingDays = daysA - (yearsA * 365);
+         
+
 
             if (timeLeft >= 0) {
                 countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
