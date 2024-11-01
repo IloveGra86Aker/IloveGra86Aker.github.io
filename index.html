@@ -5,13 +5,13 @@
     <title>カウントダウン</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #a0a0f0;
         }
         #countdown {
             font-size: 3em;
@@ -34,7 +34,10 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            countdownElement.innerHTML = `${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+            const years = Math.floor(days / 365);
+            const remainingDays = days % 365;
+
+            countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
         }
 
         setInterval(updateCountdown, 1000);
