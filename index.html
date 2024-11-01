@@ -35,8 +35,13 @@
 
             const oly = Math.floor(days/1461);
             const daysA = days - oly * 1461 ;
+
+            if(days>=366){
             const yearsA = Math.floor(daysA / 365);
             const years =( oly * 4) + yearsA;
+            }else{
+            const yearsA = 0;
+            }
             
             
             const remainingDays = daysA - (yearsA * 365);
