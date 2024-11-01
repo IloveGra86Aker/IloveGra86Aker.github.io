@@ -2,11 +2,42 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>カウントダウンサイト</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>カウントダウン</title>
+    <style>
+        body {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #countdown {
+            font-size: 3em;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <div id="countdown"></div>
-    <script src="script.js"></script>
+    <script>
+        const endDate = new Date("2024-12-31T00:00:00").getTime();
+        const countdownElement = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = endDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
