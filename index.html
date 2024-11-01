@@ -37,11 +37,53 @@
             const years = Math.floor(days / 365);
             const remainingDays = days % 365;
 
-            if (timeLeft > 0) {
+        <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>カウントダウン</title>
+    <style>
+        body {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0508f0;
+        }
+        #countdown {
+            font-size: 3em;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown"></div>
+    <script>
+        const endDate = new Date("2280-09-10T00:00:00Z").getTime();
+        const countdownElement = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = endDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            const years = Math.floor(days / 365);
+            const remainingDays = days % 365;
+
+           
                 countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
-            } else {
-                countdownElement.innerHTML = "Happy Birthday!";
-            }
+          
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
 
         setInterval(updateCountdown, 1000);
     </script>
