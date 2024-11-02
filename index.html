@@ -40,14 +40,14 @@
             const oly = Math.floor(daysAa/1461);
             const daysA = daysAa - oly * 1461 ;
 
-            const yearsA = Math.floor((daysA + 254 -1) / 365);
+            const yearsA = Math.floor((daysA + 252) / 365);
             const years =( oly * 4) + yearsA;
 
             
 
             const remainingDaysA = days - (years * 365 ) + 253 ;
-            const remeiningYearsA = Math.floor(remainingDaysA/365);
-            const remainingDays = remainingDaysA - (remainingYearsA * 365);
+            const YearsforRD = Math.floor(remainingDaysA/365);
+            const remainingDays = remainingDaysA - (YearsforRD * 365);
          
 
 
