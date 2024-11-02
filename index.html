@@ -42,21 +42,35 @@
 
             const olyA = Math.floor((daysA + 254)/1461);
             const daysB = daysA - olyA * 1461 + 254;
-            
+
+            if((oly+olyA)>=1){
             const yearsA = Math.floor(daysB / 365);
             const years =( (oly + olyA) * 4 ) + yearsA;
 
         
             const YearsforRD = Math.floor(daysB/365);
             const remainingDays = daysB - (YearsforRD * 365);
-         
-
-
+                
+                if (timeLeft >= 0) {
+                countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+            } else {
+                countdownElement.innerHTML = "Happy Birthday!<br>2280-9-10";
+            }
+                
+            }else{
+            const years = Math.floor((daysB -1)/365);
+            const remainingDays = daysB - (years * 365);
+                
             if (timeLeft >= 0) {
                 countdownElement.innerHTML = `${years}年 ${remainingDays}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
             } else {
                 countdownElement.innerHTML = "Happy Birthday!<br>2280-9-10";
             }
+                
+            }
+
+
+            
                 
            
             
