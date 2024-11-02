@@ -43,10 +43,11 @@
             const olyA = Math.floor((daysA + 254)/1461);
             const daysB = daysA - olyA * 1461 + 254;
 
-            if((oly+olyA)>=1){
+           
             const yearsA = Math.floor(daysB / 365.25);
             const years =( (oly + olyA) * 4 ) + yearsA;
 
+            if (years>=4) {
         
             const YearsforRD = Math.floor(daysB/365.25);
             const remainingDays = daysB - (YearsforRD * 365);
@@ -57,8 +58,8 @@
                 countdownElement.innerHTML = "Happy Birthday!<br>2280-9-10";
             }
                 
-            }else{
-            const years = Math.floor(daysB /365.25);
+            } else {
+            
             const remainingDays = daysB - (years * 365);
                 
             if (timeLeft >= 0) {
