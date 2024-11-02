@@ -44,7 +44,7 @@
             const daysB = daysA - olyA * 1461 + 254;
             
             const yearsA = Math.floor(daysB / 365);
-            const years =( olyA * 4 ) + yearsA;
+            const years =( (oly + olyA) * 4 ) + yearsA;
 
         
             const YearsforRD = Math.floor(daysB/365);
