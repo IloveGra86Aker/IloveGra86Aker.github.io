@@ -34,18 +34,20 @@
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
 
-            const timeleftA = timeLeft - 21945600000;
+            const timeLeftA = timeLeft - 21945600000;
             const daysAa =Math.floor(timeLeftA/(1000*60*60*24));
                 
             const oly = Math.floor(daysAa/1461);
             const daysA = daysAa - oly * 1461 ;
 
-            const yearsA = Math.floor(daysA / 365);
-            const yearsB =( oly * 4) + yearsA;
+            const yearsA = Math.floor(daysA + 254 -1 / 365);
+            const years =( oly * 4) + yearsA;
 
-            const remainingDaysA = daysA - (yearsB * 365);
+            
 
-            const remainingDays = remainingDaysA + 365;
+            const remainingDays = days - (yearsA * 365 ) + 253;
+
+          
          
 
 
